@@ -17,6 +17,8 @@ import Explore from './routes/explore';
 import Auth from './routes/auth';
 import ErrorRoute from "./routes/utilities/ErrorRoute"
 import Section1 from './components/Section1';
+import LoginComponent from './components/LoginComponent';
+import RegisterComponent from './components/RegisterComponent';
 
 const router = createBrowserRouter([
   {
@@ -39,8 +41,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/auth",
-        element: <Auth />,
+        // element: <Auth />,
         errorElement: <ErrorRoute/>,
+        children :[
+        {
+          path: "/auth/login",
+          element: <LoginComponent />,
+          errorElement: <ErrorRoute/>,
+        }, 
+        {
+          path: "/auth/register",
+          element: <RegisterComponent />,
+          errorElement: <ErrorRoute/>,
+        },
+        ]
         // loader: teamLoader,
       },
     ],

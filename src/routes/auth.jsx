@@ -1,11 +1,11 @@
 import React from 'react'
-import AuthComponent from '../components/AuthComponent'
+import RegisterComponent from '../components/RegisterComponent'
 
 export default function Auth() {
   return (
     <>
       <div className="">
-        <AuthComponent/>
+        <RegisterComponent/>
       </div>
     </>
   )

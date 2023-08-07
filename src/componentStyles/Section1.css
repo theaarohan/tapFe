@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
   
   .hero {
@@ -27,3 +27,8 @@
     opacity: 0;
   }
   
+  @media (max-width: 520px) {
+    .text-container {
+      font-size: 1rem;
+    }
+  }
