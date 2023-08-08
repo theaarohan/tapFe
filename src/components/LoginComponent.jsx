@@ -10,8 +10,9 @@ export default function LoginComponent() {
   const fnHandleLogin = async (e) =>{
     console.log({stEmail, stPassword})
     e.preventDefault();
-    const response = apiLogin(stEmail, stPassword);
+    const response = await apiLogin(stEmail, stPassword);
     console.log(response)
+    localStorage.setItem("token", response.data.token)
   }
 
 

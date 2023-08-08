@@ -9,7 +9,9 @@ export default function Root() {
   return (
     <>
       <Navbar2/>
-      <Outlet />
+      <div className="mt-24">
+        <Outlet />
+      </div>
     </>
   )
 }

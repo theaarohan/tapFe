@@ -1,14 +1,14 @@
-const APIURL = "http://localhost:3000";
-
-
-
+const LOCALURL = "http://localhost:3000";
+const STAGINGURL = "https://tap-be.vercel.app/"
 
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: APIURL, // Replace with your backend URL
+  baseURL: STAGINGURL, // Replace with your backend URL
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    'Access-Control-Allow-Origin' : [STAGINGURL, LOCALURL]
   },
 });
 
@@ -49,6 +49,21 @@ export const apiLogin = async (ipEmail, ipPassword) => {
 }
 } 
 
+export const apiAdminAddNewContent = async (ipTitle, ipTags, ipContentUrl, ipDescription, ipPlatform) =>{
+try {
+    await api.post('/admin/newcontent', {
+      ipTitle,
+      ipTags,
+      ipContentUrl,
+      ipDescription,
+      ipPlatform
+    });
+
+    console.log('Content submitted successfully');
+  } catch (error) {
+    console.error('Error submitting content:', error);
+  }
+}
 
 // {
 //     "data": {

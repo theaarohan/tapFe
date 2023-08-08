@@ -19,6 +19,7 @@ import ErrorRoute from "./routes/utilities/ErrorRoute"
 import Section1 from './components/Section1';
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
+import Admin from './routes/admin';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,19 @@ const router = createBrowserRouter([
           element: <RegisterComponent />,
           errorElement: <ErrorRoute/>,
         },
+        ]
+        // loader: teamLoader,
+      },
+      {
+        path: "/admin",
+        // element: <Auth />,
+        errorElement: <ErrorRoute/>,
+        children :[
+        {
+          path: "/admin/new",
+          element: <Admin/>,
+          errorElement: <ErrorRoute/>,
+        }, 
         ]
         // loader: teamLoader,
       },

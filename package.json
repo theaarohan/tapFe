@@ -12,6 +12,7 @@
   "dependencies": {
     "@geist-ui/core": "^2.3.8",
     "@geist-ui/icons": "^1.0.2",
+    "@material-tailwind/react": "^2.0.8",
     "animejs": "^3.2.1",
     "axios": "^1.4.0",
     "preline": "^1.9.0",
