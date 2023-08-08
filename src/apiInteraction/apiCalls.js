@@ -5,7 +5,7 @@ const STAGINGURL = "https://tap-be.vercel.app/"
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: LOCALURL, // Replace with your backend URL
+  baseURL: STAGINGURL, // Replace with your backend URL
   headers: {
     'Content-Type': 'application/json',
     // 'Authorization': `Bearer ${localStorage.getItem("token")}`,
