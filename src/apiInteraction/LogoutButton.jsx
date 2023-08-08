@@ -15,7 +15,7 @@ const LogoutButton = ( {newFn} ) => {
     newFn();
   };
   return (
-        <Button onClick={handleLogout} width="100%" scale={1/2} icon={<UserX />} type="error">Logout X </Button>
+        <Button onClick={handleLogout} width="100%" scale={1} icon={<UserX />} type="error">Logout</Button>
   );
 };
  

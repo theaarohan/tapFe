@@ -7,11 +7,14 @@ const AddNewContent = () => {
   const [stIpTags, setStIpTags] = useState('');
   const [stIpContentUrl, setStIpContentUrl] = useState('');
   const [stIpDescription, setStIpDescription] = useState('');
+  const [stIpPlatform, setStIpPlatform] = useState('');
+  const [stIpContentType, setStIpContentType] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const ipPlatform = "instagram";
-    const response = apiAdminAddNewContent(stIpTitle, stIpTags, stIpContentUrl, stIpDescription, ipPlatform );
+    // const stIpPlatform = "instagram";
+    // const stIpContentType = "image";
+    const response = apiAdminAddNewContent(stIpTitle, stIpTags, stIpContentUrl, stIpContentType, stIpDescription, stIpPlatform );
     console.log(response)
   };
 
@@ -67,6 +70,16 @@ const AddNewContent = () => {
             required
           />
         </div>
+        <div className="">
+            <input type="radio" name="ipPlatform" value={"instagram"} onClick={(e)=> setStIpPlatform(e.target.value)}/> Instagram
+            <input type="radio" name="ipPlatform" value={"youtube"} onClick={(e)=> setStIpPlatform(e.target.value)}/> Youtube
+        </div>
+
+        <div className="">
+            <input type="radio" name="ipContentType" value={"image"} onClick={(e)=> setStIpContentType(e.target.value)}/> Image
+            <input type="radio" name="ipContentType" value={"video"} onClick={(e)=> setStIpContentType(e.target.value)}/> Video
+        </div>
+        
         <button
           type="submit"
           className="bg-blue-500 text-white w-32 inline py-2 px-4 rounded hover:bg-blue-600"

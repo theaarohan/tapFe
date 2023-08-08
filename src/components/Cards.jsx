@@ -1,7 +1,7 @@
 import {Card,CardHeader,CardBody,CardFooter,Typography,Button,} from "@material-tailwind/react";
 import { Heart, Share } from '@geist-ui/icons'
 
-export function CardDefault({propTitle, propDescription}) {
+export function CardComponent({propTitle, propDescription}) {
 return (
     <>
     <Card className="mt-8 w-80 shadow-lg hover:shadow-md cursor-pointer">
