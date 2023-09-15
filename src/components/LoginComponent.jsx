@@ -1,20 +1,30 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiLogin } from '../apiInteraction/apiCalls';
 
 export default function LoginComponent() {
 
+  const navigate = useNavigate();
   const [stEmail, setStEmail] = useState("")
   const [stPassword, setStPassword] = useState("")
 
   const fnHandleLogin = async (e) =>{
-    console.log({stEmail, stPassword})
-    e.preventDefault();
-    const response = await apiLogin(stEmail, stPassword);
-    console.log(response)
-    localStorage.setItem("token", response.data.token)
-  }
+    try{
 
+      console.log({stEmail, stPassword})
+      e.preventDefault();
+      const response = await apiLogin(stEmail, stPassword);
+      console.log(response)
+      localStorage.setItem("token", response.data.token)
+      console.log(localStorage.getItem("token"));
+      navigate("/explore");
+    }
+    catch(err) {
+      console.log(err);
+      navigate("/auth/register")
+    }
+  }
+ 
 
   return (
     <>

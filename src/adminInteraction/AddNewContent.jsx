@@ -16,10 +16,15 @@ const AddNewContent = () => {
     // const stIpContentType = "image";
     const response = apiAdminAddNewContent(stIpTitle, stIpTags, stIpContentUrl, stIpContentType, stIpDescription, stIpPlatform );
     console.log(response)
+
+    if(response.status(401)){
+      // return res.status(401).json({ message: 'Unauthorized, You are not an Admin' });
+      window.alert("Unauthorized, You are not an Admin");
+    }
   };
 
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-5">
+    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl space-y-5">
       <h2 className="text-2xl font-semibold">Add New Content</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -82,7 +87,7 @@ const AddNewContent = () => {
         
         <button
           type="submit"
-          className="bg-blue-500 text-white w-32 inline py-2 px-4 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white inline mt-4 w-full py-2 px-4 rounded hover:bg-blue-600"
         >
           Submit
         </button>

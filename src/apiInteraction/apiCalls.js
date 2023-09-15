@@ -8,7 +8,7 @@ const api = axios.create({
   baseURL: STAGINGURL, // Replace with your backend URL
   headers: {
     'Content-Type': 'application/json',
-    // 'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    'Authorization': `Bearer ${localStorage?.getItem("token")}`,
     // 'Access-Control-Allow-Origin' : '*'
   },
 });
@@ -59,19 +59,25 @@ try {
       ipDescription,
       ipPlatform
     });
-
+    
     console.log('Content submitted successfully');
   } catch (error) {
+    if(error.response.status == 401){
+      return ({ message: 'Unauthorized, You are not an Admin', status: 401 });
+    }
     console.error('Error submitting content:', error);
   }
 }
 
 export const apiGetAllContent = async (platform) =>{
   try {
-    await api.get(`/content?platform=${platform}`,);
-
+    const response = await api.get(`/content?platform=all`,);
     console.log('Content Fetched successfully');
+
+    return response;
+
   } catch (error) {
     console.error('Error Fetching content:', error);
   }
 }
+

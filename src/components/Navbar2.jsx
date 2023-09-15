@@ -15,7 +15,7 @@ export default function Navbar2() {
     <Grid xs={24}><Card width="100%" height="">
       
       <div className="flex flex-row justify-between align-middle space-x-2 bg-white-400" >
-        <div className="my-auto">
+        <div className="my-auto"> 
           <Link href="">
             <img className="h-8 object-contain" src='/assets/logos/TapLogo.png' />
           </Link>
