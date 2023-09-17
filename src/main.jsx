@@ -12,14 +12,10 @@ import {
 } from "react-router-dom";
 
 // Routes imports
-import Root from './routes/root';
-import Explore from './routes/explore';
-import Auth from './routes/auth';
-import ErrorRoute from "./routes/utilities/ErrorRoute"
-import Section1 from './components/Section1';
-import LoginComponent from './components/LoginComponent';
-import RegisterComponent from './components/RegisterComponent';
-import Admin from './routes/admin';
+
+import { ErrorRoute } from "./routes/utilities"
+import {Root, Explore, Content, Auth, Admin } from './routes';
+import { LoginComponent, RegisterComponent, Section1Component } from './components';
 
 const router = createBrowserRouter([
   {
@@ -30,13 +26,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Section1 />,
+        element: <Section1Component />,
         errorElement: <ErrorRoute/>,
         // loader: teamLoader,
       },
       {
         path: "/explore",
         element: <Explore />,
+        errorElement: <ErrorRoute/>,
+        // loader: teamLoader,
+      },
+      {
+        path: "/content/:contentId",
+        element: <Content />,
         errorElement: <ErrorRoute/>,
         // loader: teamLoader,
       },

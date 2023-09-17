@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link, useRouteError, NavLink } from 'react-router-dom';
+import {Link, useRouteError, NavLink } from 'react-router-dom';
 
-export default function ErrorRoute() {
+const ErrorRoute = () => {
   
     const error = useRouteError();
     console.error(error);
@@ -54,3 +54,4 @@ export default function ErrorRoute() {
     </>
   )
 }
+export default ErrorRoute

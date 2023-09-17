@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import anime from "animejs";
 import "../componentStyles/Section1.css"
 
-const Section1 = () => {
+const Section1Component = () => {
   useEffect(() => {
     // Animation function
     const animateLetters = () => {
@@ -52,4 +52,4 @@ const Section1 = () => {
   );
 };
 
-export default Section1;
+export default Section1Component;

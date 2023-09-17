@@ -1,5 +1,5 @@
-import Section1 from "../components/Section1";
-import Navbar2 from "../components/Navbar2";
+import Section1 from "../components/Section1Component";
+import Navbar2 from "../components/NavbarComponent";
 import "../index.css"
 import { Outlet } from "react-router-dom";
 

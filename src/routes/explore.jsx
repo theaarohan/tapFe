@@ -1,10 +1,13 @@
 import React from 'react'
-import ExploreComponent from '../components/ExploreComponent'
+import {CardsWrapper, CarouselWrapper } from '../Wrappers';
 
-export default function Explore() {
+const Explore = () =>{
   return (
     <>
-      <ExploreComponent/>  
+        <CarouselWrapper/>
+        <CardsWrapper/>  
     </>
   )
 }
+
+export default Explore;

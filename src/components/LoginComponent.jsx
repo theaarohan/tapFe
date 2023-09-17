@@ -1,30 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { apiLogin } from '../apiInteraction/apiCalls';
+import { apiLogin } from "../apiInteraction/apiCalls";
 
-export default function LoginComponent() {
-
+const LoginComponent = () => {
   const navigate = useNavigate();
-  const [stEmail, setStEmail] = useState("")
-  const [stPassword, setStPassword] = useState("")
+  const [stEmail, setStEmail] = useState("");
+  const [stPassword, setStPassword] = useState("");
 
-  const fnHandleLogin = async (e) =>{
-    try{
-
-      console.log({stEmail, stPassword})
+  const fnHandleLogin = async (e) => {
+    try {
+      console.log({ stEmail, stPassword });
       e.preventDefault();
       const response = await apiLogin(stEmail, stPassword);
-      console.log(response)
-      localStorage.setItem("token", response.data.token)
+      console.log(response);
+      localStorage.setItem("token", response.data.token);
       console.log(localStorage.getItem("token"));
       navigate("/explore");
-    }
-    catch(err) {
+    } catch (err) {
       console.log(err);
-      navigate("/auth/register")
+      navigate("/auth/register");
     }
-  }
- 
+  };
 
   return (
     <>
@@ -38,7 +34,10 @@ export default function LoginComponent() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
                 Email address
               </label>
               <div className="mt-2">
@@ -49,7 +48,7 @@ export default function LoginComponent() {
                   value={stEmail}
                   autoComplete="email"
                   required
-                  onChange={(e)=> setStEmail(e.target.value)}
+                  onChange={(e) => setStEmail(e.target.value)}
                   className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -57,11 +56,17 @@ export default function LoginComponent() {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a
+                    href="#"
+                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >
                     Forgot password?
                   </a>
                 </div>
@@ -74,7 +79,7 @@ export default function LoginComponent() {
                   autoComplete="current-password"
                   required
                   value={stPassword}
-                  onChange={(e)=> setStPassword(e.target.value)}
+                  onChange={(e) => setStPassword(e.target.value)}
                   className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -92,14 +97,18 @@ export default function LoginComponent() {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            New user?{' '}
-            <Link to="/auth/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            New user?{" "}
+            <Link
+              to="/auth/register"
+              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >
               Sign up
             </Link>
           </p>
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
+
+export default LoginComponent;

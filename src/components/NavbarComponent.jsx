@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import {Grid, Button, Text, Image, Drawer, Card, Tabs, } from "@geist-ui/core";
+import { Grid, Button, Text, Image, Drawer, Card, Tabs } from "@geist-ui/core";
 import { Menu, LogIn, User, UserX } from '@geist-ui/icons'
-import {Link, useNavigate} from "react-router-dom";
-import LogoutButton from '../apiInteraction/LogoutButton';
+import { Link, useNavigate } from "react-router-dom";
+import { LogoutButton } from "../Utilities"
 
-export default function Navbar2() {
+const NavbarComponent = () => {
   const [stOpenDrawer, setStOpenDrawer] = useState(false);
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export default function Navbar2() {
       <div className="flex flex-row justify-between align-middle space-x-2 bg-white-400" >
         <div className="my-auto"> 
           <Link href="">
-            <img className="h-8 object-contain" src='/assets/logos/TapLogo.png' />
+            <img alt={"Tap Logo"} className="h-8 object-contain" src='/assets/logos/TapLogo.png' />
           </Link>
         </div>
         <div>
@@ -75,3 +75,5 @@ export default function Navbar2() {
     </>
   )
 }
+
+export default NavbarComponent;
