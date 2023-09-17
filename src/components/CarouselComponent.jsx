@@ -8,19 +8,23 @@ const CarouselComponent = ({ propArrData }) => {
   return (
     <>
       <Carousel autoplay autoplayDelay={3000} loop className="rounded-md">
-        {propArrData.map((item, index) => (
-          <Link to={`/content/${item.keyTapContentId}`} >
-          <img
-            src={`https://source.unsplash.com/random/1920x1080?sig=${index}`}
-            alt={`${item.keyTitle} - Image`}
-            className="h-full w-full object-cover"
-            />
-            </Link>
-        
-        ))}
+        {propArrData.map((item, index) => {
+          return (
+            <>
+              <Link to={`/content/${item.keyTapContentId}`}>
+                <img
+                  key={index}
+                  src={`https://source.unsplash.com/random/1920x1080?sig=${index}`}
+                  alt={`${item.keyTitle} - Image`}
+                  className="h-full w-full object-cover"
+                />
+              </Link>
+            </>
+          );
+        })}
       </Carousel>
     </>
-  ); 
+  );
 };
 
 export default CarouselComponent;

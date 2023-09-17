@@ -15,7 +15,7 @@ const CardComponent = ({propImage, propImageAlt, propHeading, propDescription}) 
 
   return (
     <Card className="mt-16 ml-4 w-80 h-96 shadow-md hover:shadow-lg cursor-pointer">
-      <CardHeader color="" className="relative h-48 w-98 p-0">
+      <CardHeader className="relative h-48 w-98 p-0">
         <img
           className="rounded-md w-full h-full object-fill" 
           src={propImage}
@@ -30,7 +30,7 @@ const CardComponent = ({propImage, propImageAlt, propHeading, propDescription}) 
               : propHeading.substring(0, headingLength)
           }`}
         </Typography>
-        <Typography variant="h7" className="text-md w-72">
+        <Typography variant="small" className="text-md w-72">
           {`${
             propDescription.length > descriptionLength
               ? `${propDescription.substring(0, descriptionLength)}...`
@@ -38,9 +38,9 @@ const CardComponent = ({propImage, propImageAlt, propHeading, propDescription}) 
           }`}
         </Typography>
       </CardBody>
-      <CardFooter className="pt-0">
-        {/* <Heart/> */}
-      </CardFooter>
+      {/* <CardFooter className="pt-0">
+        <Heart/>
+      </CardFooter> */}
     </Card>
   );
 }
